@@ -2,6 +2,7 @@ namespace AirlinesReservationSystem.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -16,17 +17,21 @@ namespace AirlinesReservationSystem.Models
             FlightSchedules1 = new HashSet<FlightSchedule>();
         }
 
+        [DisplayName("ID")]
         public int id { get; set; }
 
         [Required]
+        [DisplayName("Name")]
         [StringLength(255)]
         public string name { get; set; }
 
         [Required]
+        [DisplayName("Code")]
         [StringLength(255)]
         public string code { get; set; }
 
         [Required]
+        [DisplayName("Address")]
         [StringLength(255)]
         public string address { get; set; }
 

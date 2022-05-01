@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AirlinesReservationSystem.Models;
+using AirlinesReservationSystem.Helper;
 
 namespace AirlinesReservationSystem.Areas.Admin.Controllers
 {
@@ -48,13 +49,18 @@ namespace AirlinesReservationSystem.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,name,email,cccd,address,phone_number,password,user_type")] User user)
         {
+            var emailExit = db.Users.FirstOrDefault(u => u.email == user.email);
+            if(emailExit != null)
+            {
+                ModelState.AddModelError("email", "Email already exists.");
+            }
             if (ModelState.IsValid)
             {
                 db.Users.Add(user);
                 db.SaveChanges();
+                AlertHelper.setAlert("success", "Create user successfully.");
                 return RedirectToAction("Index");
             }
-
             return View(user);
         }
 
@@ -92,29 +98,12 @@ namespace AirlinesReservationSystem.Areas.Admin.Controllers
         // GET: Admin/Users/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
-
-        // POST: Admin/Users/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
             User user = db.Users.Find(id);
             db.Users.Remove(user);
             db.SaveChanges();
+            AlertHelper.setAlert("success", "Remove user successfully.");
             return RedirectToAction("Index");
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

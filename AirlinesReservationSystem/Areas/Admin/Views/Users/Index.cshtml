@@ -5,66 +5,75 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="container-fluid mt-2">
+    <div class="card">
+        <div class="card-header">
+            <b>List User</b>
+        </div>
+        <div class="card-body">
+            <p>
+                <a class="btn btn-primary text-white" href="@Url.Action("Create")"><i class="fa fa-plus" aria-hidden="true"></i> Create User</a>
+                
+            </p>
+            <table class="table table-striped">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.cccd)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.address)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.phone_number)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.password)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.user_type)
+                    </th>
+                    <th></th>
+                </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cccd)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.phone_number)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.password)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.user_type)
-        </th>
-        <th></th>
-    </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.cccd)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.phone_number)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.password)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.user_type)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Edit",new { id = item.id })"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                            <a href="@Url.Action("Delete",new { id = item.id })" data-confirm="Are you sure?"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cccd)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.phone_number)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.user_type)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+            </table>
+        </div>
+    </div>
+</div>
 
-</table>
