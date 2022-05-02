@@ -30,7 +30,7 @@ namespace AirlinesReservationSystem.Models
             modelBuilder.Entity<AirPort>()
                 .HasMany(e => e.FlightSchedules1)
                 .WithRequired(e => e.AirPort1)
-                .HasForeignKey(e => e.from_airport)
+                .HasForeignKey(e => e.to_airport)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<FlightSchedule>()
