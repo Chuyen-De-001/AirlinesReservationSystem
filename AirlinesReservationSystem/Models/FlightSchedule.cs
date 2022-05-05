@@ -38,6 +38,9 @@ namespace AirlinesReservationSystem.Models
         [DisplayName("Cost")]
         public int cost { get; set; }
 
+        [DisplayName("Code")]
+        public string code { get; set; }
+
         [DisplayName("From")]
         public virtual AirPort AirPort { get; set; }
 
