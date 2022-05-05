@@ -11,8 +11,19 @@ using AirlinesReservationSystem.Helper;
 
 namespace AirlinesReservationSystem.Areas.Admin.Controllers
 {
-    public class UsersController : Controller
+    public class UsersController : AuthController
     {
+
+        protected override void OnActionExecuted(ActionExecutedContext filterContext)
+        {
+            if (AuthHelper.getIdentity() == null)
+            {
+                filterContext.Result = new RedirectToRouteResult(
+                    new System.Web.Routing.RouteValueDictionary(new { Controller = "Security", Action = "Login" }));
+            }
+            base.OnActionExecuted(filterContext);
+        }
+
         private Model1 db = new Model1();
 
         // GET: Admin/Users
