@@ -51,7 +51,7 @@ namespace AirlinesReservationSystem.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,plane_id,from_airport,to_airport,departures_at,arrivals_at,cost")] FlightSchedule flightSchedule)
+        public ActionResult Create([Bind(Include = "id,plane_id,code,from_airport,to_airport,departures_at,arrivals_at,cost")] FlightSchedule flightSchedule)
         {
             if (ModelState.IsValid)
             {
