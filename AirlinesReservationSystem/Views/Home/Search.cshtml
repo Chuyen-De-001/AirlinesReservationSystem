@@ -28,9 +28,10 @@
                     <div id="tab1" style="display: block;">
                         <div class="submit-form">
                             <h4>Check availability for <em>direction</em>:</h4>
-                            @using (Html.BeginForm("Search", "Home", new { @id = string.Empty }, FormMethod.Get,
+                            @using (Html.BeginForm("Search", "Home", new { @id = string.Empty }, FormMethod.Post,
 new { @id = "form-submit", @name = "form-submit" }))
                             {
+                                @Html.AntiForgeryToken()
                                 <div class="row">
                                     <div class="col-md-6">
                                         <fieldset>
@@ -64,7 +65,7 @@ new { @id = "form-submit", @name = "form-submit" }))
                                     </div>
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <button type="submit" id="form-submit" class="btn">Order Ticket Now</button>
+                                            <button type="submit" class="btn btn-warning"><i class="fa fa-search" aria-hidden="true"> Search Ticket</i></button>
                                         </fieldset>
                                     </div>
                                 </div>
@@ -76,36 +77,5 @@ new { @id = "form-submit", @name = "form-submit" }))
         </div>
     </div>
 </section>
-<div class="container" style="margin-top:50px">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Plane</th>
-                <th>From</th>
-                <th>To</th>
-                <th>Departures At</th>
-                <th>Arrivals At</th>
-                <th>Cost</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-            </tr>
-            <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
-            </tr>
-            <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>july@example.com</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+
 

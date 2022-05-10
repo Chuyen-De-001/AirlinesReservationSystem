@@ -12,7 +12,7 @@
     http://www.tooplate.com/view/2093-flight
 
     -->
-    <title>Flight - Travel and Tour</title>
+    <title>@ViewBag.Title</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,6 +26,10 @@
     <link rel="stylesheet" href="~/Content/css/owl-carousel.css">
     <link rel="stylesheet" href="~/Content/css/datepicker.css">
     <link rel="stylesheet" href="~/Content/css/tooplate-style.css">
+    <link rel="stylesheet" href="~/Content/Site.css">
+    <script src="~/Scripts/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="~/Scripts/js/vendor/bootstrap.min.js"></script>
+    <script src="~/Scripts/js/plugins.js"></script>
     <link rel="Shortcut Icon" href="~/Asset/img/logo-i.png" type="img/x-icon" />
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
@@ -34,6 +38,20 @@
 </head>
 
 <body>
+    <div class="container-fluid" style="position: absolute; width: 100%; background-color: rgb(0 0 0 / 53%); z-index: 100; ">
+        <nav class="navbar container" style="margin-top: 0px; margin-bottom: 0px; padding:20px">
+          <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="@Url.Action("Index","Home")"><img src="/Asset/img/logo.png" alt="Logo"></a>
+                
+            </div>
+            <ul class="nav navbar-nav pull-right"">
+              <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a></li>
+              <li><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Login</a></li>
+            </ul>
+          </div>
+        </nav>
+    </div>
     @RenderBody()
     <footer>
         <div class="container">
@@ -58,9 +76,6 @@
             </div>
         </div>
     </footer>
-    <script src="~/Scripts/js/vendor/jquery-1.11.2.min.js"></script>
-    <script src="~/Scripts/js/vendor/bootstrap.min.js"></script>
-    <script src="~/Scripts/js/plugins.js"></script>
 </body>
 
 <!-- Mirrored from www.tooplate.com/templates/2093_flight/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 May 2018 10:39:55 GMT -->
