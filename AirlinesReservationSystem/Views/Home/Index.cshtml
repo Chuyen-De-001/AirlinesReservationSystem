@@ -83,46 +83,53 @@ new { @id = "form-submit", @name = "form-submit" }))
 {
 <div class="container-fluid" style="padding: 50px; background-color: #d1d1d1; ">
     <h2 class="text-center" style="margin-bottom:30px">Lịch bay</h2>
-
-    @foreach (FlightSchedule model in flightSchedules)
+    @if (flightSchedules.Count() > 0)
     {
-        <div class="row" style="padding: 30px; background: #ffffff; margin-bottom: 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <div class="col-sm-4 text-center">
-                <img src="~/Asset/logo.png" alt="logo" width="50px" />
-                @Html.DisplayFor(modelItem => model.Plane.name)
+        foreach (FlightSchedule model in flightSchedules)
+        {
+            <div class="row" style="padding: 30px; background: #ffffff; margin-bottom: 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                <div class="col-sm-4 text-center">
+                    <img src="~/Asset/logo.png" alt="logo" width="50px" />
+                    @Html.DisplayFor(modelItem => model.Plane.name)
+                </div>
+                <div class="col-sm-4">
+                    <table style="width:100%">
+                        <tr class="text-center">
+                            <td>
+                                <div>
+                                    @Html.DisplayFor(modelItem => model.departures_at)
+                                    <br><span class="label label-default">@Html.DisplayFor(modelItem => model.AirPort.name)</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    -----------
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    @Html.DisplayFor(modelItem => model.arrivals_at)
+                                    <br><span class="label label-default">@Html.DisplayFor(modelItem => model.AirPort1.name)</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <span style="font-size:20px;color:red;font-weight:bold">
+                        @MoneyHelper.showVND(model.cost)
+                        /khách
+                    </span><br />
+                    <a class="btn btn-warning" style="width: 30%; border-radius: 8px;">Chọn</a>
+                </div>
             </div>
-            <div class="col-sm-4">
-                <table style="width:100%">
-                    <tr class="text-center">
-                        <td>
-                            <div>
-                                @Html.DisplayFor(modelItem => model.departures_at)
-                                <br><span class="label label-default">@Html.DisplayFor(modelItem => model.AirPort.name)</span>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                -----------
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                @Html.DisplayFor(modelItem => model.arrivals_at)
-                                <br><span class="label label-default">@Html.DisplayFor(modelItem => model.AirPort1.name)</span>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="col-sm-4 text-center">
-                <span style="font-size:20px;color:red;font-weight:bold">
-                    @MoneyHelper.showVND(model.cost)
-                    /khách
-                </span><br />
-                <a class="btn btn-warning" style="width: 30%; border-radius: 8px;">Chọn</a>
-            </div>
-        </div>
+        }
     }
+    else
+    {
+        <p class="text-center">Flight not found.</p>
+    }
+
 </div>
 }
 else
