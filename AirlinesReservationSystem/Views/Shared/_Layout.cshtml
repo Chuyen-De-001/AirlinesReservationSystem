@@ -40,16 +40,20 @@
 <body>
     <div class="container-fluid" style="position: absolute; width: 100%; background-color: rgb(0 0 0 / 53%); z-index: 100; ">
         <nav class="navbar container" style="margin-top: 0px; margin-bottom: 0px; padding:20px">
-          <div class="container-fluid">
-            <div class="navbar-header">
-                <a href="@Url.Action("Index","Home")"><img src="/Asset/img/logo.png" alt="Logo"></a>
-                
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="@Url.Action("Index","Home")"><img src="/Asset/img/logo.png" alt="Logo"></a>
+
+                </div>
+                <ul class="nav navbar-nav pull-right" ">
+                    <li>
+                        <a data-toggle="modal" data-target="#signUpModal"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
+                    </li>
+                    <li>
+                        <a data-toggle="modal" data-target="#loginModal"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Sign In</a>
+                    </li>
+                </ul>
             </div>
-            <ul class="nav navbar-nav pull-right"">
-              <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a></li>
-              <li><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Login</a></li>
-            </ul>
-          </div>
         </nav>
     </div>
     @RenderBody()
@@ -76,6 +80,91 @@
             </div>
         </div>
     </footer>
+    <div class="modal fade" id="loginModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content" style="padding:20px 80px;">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">Sign In</h2>
+                </div>
+                <div class="modal-body" style="padding:20px;">
+                    <div class="btn-login-facebook">
+                        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                        <span>Sign in with Facebook</span>
+                    </div>
+                    <div class="btn-login-facebook">
+                        <i class="fa fa-google-plus-official" aria-hidden="true"></i>
+                        <span>Sign in with Google</span>
+                    </div>
+                    <p style="margin-top:20px">Or log in with your phone number, email</p>
+                    <form action="/action_page.php">
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="pwd" placeholder="Enter your password">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-warning form-control" style="border-radius:10px"><b>Sign In</b></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="text-center">
+                    <a href="#" style="color:blue">Forgot password</a>
+                </div>
+                <div class="text-center">
+                    Have account? <a href="#" style="color:blue">Register an account</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="signUpModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content" style="padding:20px 80px;">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">Sign Up</h2>
+                </div>
+                <div class="modal-body" style="padding:20px;">
+                    <div class="btn-login-facebook">
+                        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                        <span>Sign up with Facebook</span>
+                    </div>
+                    <div class="btn-login-facebook">
+                        <i class="fa fa-google-plus-official" aria-hidden="true"></i>
+                        <span>Sign up with Google</span>
+                    </div>
+                    <p style="margin-top:20px">Or log in with your phone number, email</p>
+                    <form action="/action_page.php">
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="pwd" placeholder="Enter your password">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="re-pwd" placeholder="Enter your re-password">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-warning form-control" style="border-radius:10px"><b>Sign Up</b></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="text-center">
+                    <a href="#" style="color:blue">Forgot password</a>
+                </div>
+                <div class="text-center">
+                    Haven't account? <a href="#" style="color:blue">SignIn an account</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </body>
 
 <!-- Mirrored from www.tooplate.com/templates/2093_flight/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 May 2018 10:39:55 GMT -->
