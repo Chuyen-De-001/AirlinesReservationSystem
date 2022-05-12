@@ -30,6 +30,7 @@
     <script src="~/Scripts/js/vendor/jquery-1.11.2.min.js"></script>
     <script src="~/Scripts/js/vendor/bootstrap.min.js"></script>
     <script src="~/Scripts/js/plugins.js"></script>
+    <script src="~/Scripts/js/main.js"></script>
     <link rel="Shortcut Icon" href="~/Asset/img/logo-i.png" type="img/x-icon" />
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
@@ -50,7 +51,7 @@
                         <a data-toggle="modal" data-target="#signUpModal"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
                     </li>
                     <li>
-                        <a data-toggle="modal" data-target="#loginModal"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Sign In</a>
+                        <a data-toggle="modal" data-target="#signInModel"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Sign In</a>
                     </li>
                 </ul>
             </div>
@@ -80,12 +81,12 @@
             </div>
         </div>
     </footer>
-    <div class="modal fade" id="loginModal" role="dialog">
+    <div class="modal fade" id="signInModel" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content" style="padding:20px 80px;">
                 <div class="modal-header text-center">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal" style="font-size:5rem">&times;</button>
                     <h2 class="modal-title">Sign In</h2>
                 </div>
                 <div class="modal-body" style="padding:20px;">
@@ -115,7 +116,7 @@
                     <a href="#" style="color:blue">Forgot password</a>
                 </div>
                 <div class="text-center">
-                    Have account? <a href="#" style="color:blue">Register an account</a>
+                    Have account? <a href="#" style="color:blue" id="sign-in-account">Register an account</a>
                 </div>
             </div>
 
@@ -127,7 +128,7 @@
             <!-- Modal content-->
             <div class="modal-content" style="padding:20px 80px;">
                 <div class="modal-header text-center">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal" style="font-size:5rem">&times;</button>
                     <h2 class="modal-title">Sign Up</h2>
                 </div>
                 <div class="modal-body" style="padding:20px;">
@@ -159,7 +160,7 @@
                     <a href="#" style="color:blue">Forgot password</a>
                 </div>
                 <div class="text-center">
-                    Haven't account? <a href="#" style="color:blue">SignIn an account</a>
+                    Haven't account? <a href="#" style="color:blue" id="sign-up-account">Sign In an account</a>
                 </div>
             </div>
 

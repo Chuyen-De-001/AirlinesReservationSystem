@@ -11,7 +11,11 @@
     [Table("User")]
     public partial class User
     {
-        
+        private static Model1 db = new Model1();
+        public const  int TYPE_ADMIN = 0;
+        public const int TYPE_CUSTOM = 1;
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
@@ -56,5 +60,15 @@
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TicketManager> TicketManagers { get; set; }
+
+        public static bool  emailExists(string email)
+        {
+            User user = db.Users.Where(s => s.email == email).FirstOrDefault();
+            if (user != null)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
