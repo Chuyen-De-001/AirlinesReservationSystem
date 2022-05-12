@@ -29,6 +29,16 @@
     margin-bottom: 15px;
 }
 
-ul.nav.navbar-nav.pull-right  {
+ul.nav.navbar-nav.pull-right {
     cursor: auto;
+}
+
+
+a {
+    cursor: context-menu;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: transparent;
+    border-color: #337ab7;
 }

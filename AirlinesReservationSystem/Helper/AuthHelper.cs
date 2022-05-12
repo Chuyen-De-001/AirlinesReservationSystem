@@ -9,7 +9,6 @@ namespace AirlinesReservationSystem.Helper
 {
     public class AuthHelper
     {
-        public static Model1 db = new Model1();
         public static void setIdentity(User user)
         {
             HttpContext.Current.Session["loginSesstion"] = user;
@@ -20,11 +19,7 @@ namespace AirlinesReservationSystem.Helper
             try
             {
                 User session = (User)HttpContext.Current.Session["loginSesstion"];
-                if (session != null)
-                {
-                    User user = db.Users.Find(session.id);
-                    return user;
-                }
+                return session;
             }
             catch
             { }

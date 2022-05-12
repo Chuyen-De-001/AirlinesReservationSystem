@@ -25,7 +25,6 @@
         [DisplayName("ID")]
         public int id { get; set; }
 
-        [Required]
         [DisplayName("Name")]
         [StringLength(255)]
         public string name { get; set; }
@@ -35,17 +34,14 @@
         [StringLength(255)]
         public string email { get; set; }
 
-        [Required]
         [DisplayName("CCCD")]
         [StringLength(255)]
         public string cccd { get; set; }
 
-        [Required]
         [DisplayName("Address")]
         [StringLength(255)]
         public string address { get; set; }
 
-        [Required]
         [DisplayName("Phone Number")]
         [StringLength(255)]
         public string phone_number { get; set; }
