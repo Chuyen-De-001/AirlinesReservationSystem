@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="~/Content/css/datepicker.css">
     <link rel="stylesheet" href="~/Content/css/tooplate-style.css">
     <link rel="stylesheet" href="~/Content/Site.css">
+    <link rel="stylesheet" href="~/Content/css/snackbar.css">
     <script src="~/Scripts/js/vendor/jquery-1.11.2.min.js"></script>
     <script src="~/Scripts/js/vendor/bootstrap.min.js"></script>
     <script src="~/Scripts/js/plugins.js"></script>
@@ -40,7 +41,7 @@
 </head>
 
 <body>
-    <div class="container-fluid" style="position: absolute; width: 100%; background-color: rgb(0 0 0 / 53%); z-index: 100; ">
+    <div class="container-fluid" style="position: absolute; width: 100%; background-color: rgb(0 0 0 / 53%); z-index: 100; height:80px">
         <nav class="navbar container" style="margin-top: 0px; margin-bottom: 0px; padding:20px">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -57,7 +58,7 @@
                                 <li><a href="#">CSS</a></li>
                                 <li><a href="@Url.Action("Logout","Security")">Log out</a></li>
                             </ul>
-                        </li> 
+                        </li>
                     </ul>
                 }
                 else
@@ -122,9 +123,8 @@
                             <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter your password" pattern="[a-zA-Z0-9]{6}" title="Password must be more than 6 character" required>
+                            <input type="password" class="form-control" id="pwd" placeholder="Enter your password" pattern="[a-zA-Z0-9]{6,100}" title="Password must be more than 6 character" required>
                         </div>
-
                         <div class="form-group">
                             <button type="submit" class="btn btn-warning form-control" style="border-radius:10px"><b>Login</b></button>
                         </div>
@@ -141,47 +141,49 @@
         </div>
     </div>
     <div class="modal fade" id="registerModal" role="dialog">
-	    <div class="modal-dialog">
-		    <!-- Modal content-->
-		    <div class="modal-content" style="padding:20px 80px;">
-			    <div class="modal-header text-center">
-				    <button type="button" class="close" data-dismiss="modal" style="font-size:5rem">&times;</button>
-				    <h2 class="modal-title">Sign Up</h2>
-			    </div>
-			    <div class="modal-body" style="padding:20px;">
-				    <div class="btn-login-facebook">
-					    <i class="fa fa-facebook-official" aria-hidden="true"></i>
-					    <span>Sign up with Facebook</span>
-				    </div>
-				    <div class="btn-login-facebook">
-					    <i class="fa fa-google-plus-official" aria-hidden="true"></i>
-					    <span>Sign up with Google</span>
-				    </div>
-				    <p style="margin-top:20px">Or log in with your phone number, email</p>
-				    <form action="@Url.Action("Register", "Security")" method="get" name="registerForm">
-					    <div class="form-group">
-						    <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email" required>
-					    </div>
-					    <div class="form-group">
-						    <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter your password" required pattern="[a-zA-Z0-9]{6}" title="Password must be more than 6 character">
-					    </div>
-					    <div class="form-group">
-						    <input type="password" class="form-control" id="re-pwd" placeholder="Enter your re-password" pattern="[a-zA-Z0-9]{6}" title="Re-Password must be more than 6 character">
-					    </div>
-					    <div class="form-group">
-						    <button type="submit" class="btn btn-warning form-control" style="border-radius:10px"><b>Sign Up</b></button>
-					    </div>
-				    </form>
-			    </div>
-			    <div class="text-center">
-				    <a href="#" style="color:blue">Forgot password</a>
-			    </div>
-			    <div class="text-center">
-				    Haven't account? <a href="#" style="color:blue" id="sign-up-account">Sign In an account</a>
-			    </div>
-		    </div>
-	    </div>
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content" style="padding:20px 80px;">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" style="font-size:5rem">&times;</button>
+                    <h2 class="modal-title">Sign Up</h2>
+                </div>
+                <div class="modal-body" style="padding:20px;">
+                    <div class="btn-login-facebook">
+                        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                        <span>Sign up with Facebook</span>
+                    </div>
+                    <div class="btn-login-facebook">
+                        <i class="fa fa-google-plus-official" aria-hidden="true"></i>
+                        <span>Sign up with Google</span>
+                    </div>
+                    <p style="margin-top:20px">Or log in with your phone number, email</p>
+                    <form action="@Url.Action("Register", "Security")" method="get" name="registerForm">
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter your password" pattern="[a-zA-Z0-9]{6,100}" title="Password must be more than 6 character" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="re-pwd" name="re-password" placeholder="Enter your re-password" pattern="[a-zA-Z0-9]{6,100}" title="Re-Password must be more than 6 character" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-warning form-control" style="border-radius:10px"><b>Sign Up</b></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="text-center">
+                    <b><a href="#" style="color:blue">Forgot password</a></b>
+                </div>
+                <div class="text-center">
+                    <b>Haven't account? <a href="#" style="color:blue" id="sign-up-account">Sign In an account</a></b>
+                </div>
+            </div>
+        </div>
     </div>
+
+    @Html.Raw(AlertHelper.showToast())
     <script>
         $(document).on("submit", "form[name=loginForm]", function (event) {
             event.preventDefault();
@@ -212,6 +214,11 @@
             var url = "@Url.Action("Register", "Security")";
             var email = $(this).find("input[name=email]").val();
             var password = $(this).find("input[name=password]").val();
+            var rePassword = $(this).find("input[name=re-password]").val();
+            if (password != rePassword) {
+                alert("Re-password does not match password.");
+                return false;
+            }
             $.ajax({
                 url: url,
                 type: "get",

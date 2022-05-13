@@ -28,7 +28,8 @@ namespace AirlinesReservationSystem.Controllers
             else
             {
 				AuthHelper.setIdentity(user);
-            }
+				AlertHelper.setToast("success", "Login successfully.");
+			}
 			return Content(JsonConvert.SerializeObject(response));
 		}
 
@@ -37,15 +38,22 @@ namespace AirlinesReservationSystem.Controllers
 			if(AuthHelper.isLogin() == true)
             {
 				AuthHelper.removeIdentity();
-            }
+				AlertHelper.setToast("warning", "Logout successfully");
+			}
 			return RedirectToAction("Index", "Home");
         }
 
-		public ActionResult Register(string email,string password)
+		public ActionResult Register(string email,string password,string rePassword)
         {
 			Dictionary<string, string> response = new Dictionary<string, string>();
 			response["status"] = "200";
 			response["message"] = "";
+			if(rePassword != password)
+            {
+				response["status"] = "400";
+				response["message"] = "Re-password does not match password.";
+				return Content(JsonConvert.SerializeObject(response));
+			}
 			if(Models.User.emailExists(email) == true)
             {
 				response["status"] = "400";
@@ -60,6 +68,7 @@ namespace AirlinesReservationSystem.Controllers
             {
 				db.Users.Add(model);
 				db.SaveChanges();
+				AlertHelper.setToast("success", "Successfully created new account.");
 				response["message"] = "Successfully created new account.";
             }
             else

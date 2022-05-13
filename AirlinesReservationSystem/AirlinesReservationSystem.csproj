@@ -254,6 +254,7 @@
     <Content Include="Content\css\fontAwesome.css" />
     <Content Include="Content\css\hero-slider.css" />
     <Content Include="Content\css\owl-carousel.css" />
+    <Content Include="Content\css\snackbar.css" />
     <Content Include="Content\css\tooplate-style.css" />
     <Content Include="Content\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Content\font-awesome-4.7.0\css\font-awesome.min.css" />
