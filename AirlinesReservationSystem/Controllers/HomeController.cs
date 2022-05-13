@@ -13,20 +13,18 @@ namespace AirlinesReservationSystem.Controllers
 {
     public class HomeController : Controller
     {
-
-        public ActionResult Test()
-        {
-            HttpCookie mycookie = Request.Cookies["mycookie"];
-            mycookie.Value = "oldValue";
-            Request.Cookies.Add(mycookie);
-            return View();
-        }
-
-
         private Model1 db = new Model1();
 
         [HttpGet]
         //[ValidateAntiForgeryToken]
+
+
+        public ActionResult View()
+        {
+            ViewBag.name = "hai";
+            return PartialView();
+        }
+
         public ActionResult Index(OrderTicketForm _orderTicketForm)
         {
             ViewBag.from = new SelectList(db.AirPorts, "id", "code");
@@ -65,5 +63,53 @@ namespace AirlinesReservationSystem.Controllers
             }
             return View(_orderTicketForm);
         }
+
+        public ActionResult DetailFlightSchedule(int id)
+        {
+            FlightSchedule flightSchedule = db.FlightSchedules.Where(s => s.id == id).FirstOrDefault();
+            if(flightSchedule == null)
+            {
+                return HttpNotFound();
+            }
+            return PartialView(flightSchedule);
+        }
+
+        [HttpGet]
+        public ActionResult PayTicket(string ticketID,int flightScheduleID)
+        {
+            Dictionary<string, string> response = new Dictionary<string, string>();
+            response["status"] = "200";
+            response["message"] = "";
+            if (!AuthHelper.isLogin())
+            {
+                response["status"] = "400";
+                response["message"] = "Must login before buying tickets.";
+                return Content(JsonConvert.SerializeObject(response));
+            }
+            TicketManager ticket = new TicketManager();
+            ticket.user_id = AuthHelper.getIdentity().id;
+            ticket.flight_schedules_id = flightScheduleID;
+            ticket.status = TicketManager.STATUS_PAY;
+            if (ModelState.IsValid)
+            {
+                db.TicketManagers.Add(ticket);
+                db.SaveChanges();
+                AlertHelper.setToast("success", "Order ticket successfully.");
+
+            }
+            return Content(JsonConvert.SerializeObject(response));
+
+
+        }
+
+        public ActionResult YourTicket()
+        {
+            if (!AuthHelper.isLogin())
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
     }
 }

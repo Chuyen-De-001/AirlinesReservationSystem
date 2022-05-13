@@ -15,10 +15,13 @@
             <table class="table table-striped">
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.FlightSchedule.id)
+                        @Html.DisplayNameFor(model => model.id)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.User.name)
+                        @Html.DisplayNameFor(model => model.FlightSchedule.code)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User.email)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.status)
@@ -28,23 +31,26 @@
 
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FlightSchedule.id)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.User.name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.status)
-                        </td>
-                        <td>
-                            <a href="@Url.Action("Edit",new { id = item.id })"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
-                            <a href="@Url.Action("Delete",new { id = item.id })">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </a>
-                        </td>
-                    </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightSchedule.code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.email)
+                </td>
+                <td>
+                    @item.getStatus()
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit",new { id = item.id })"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                    <a href="@Url.Action("Delete",new { id = item.id })">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
                 }
 
             </table>

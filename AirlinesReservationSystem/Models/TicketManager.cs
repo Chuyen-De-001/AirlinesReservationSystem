@@ -10,6 +10,10 @@ namespace AirlinesReservationSystem.Models
     [Table("TicketManager")]
     public partial class TicketManager
     {
+
+        public const int STATUS_PAY = 0;
+        public const int STATUS_CANCEL = 1;
+
         [DisplayName("ID")]
         public int id { get; set; }
 
@@ -25,5 +29,20 @@ namespace AirlinesReservationSystem.Models
         public virtual FlightSchedule FlightSchedule { get; set; }
 
         public virtual User User { get; set; }
+
+        public string getStatus()
+        {
+            string status = "";
+            switch (this.status)
+            {
+                case TicketManager.STATUS_PAY:
+                    status = "PAY";
+                    break;
+                case TicketManager.STATUS_CANCEL:
+                    status = "CANCEL";
+                    break;
+            }
+            return status;
+        }
     }
 }

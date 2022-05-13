@@ -120,7 +120,7 @@ new { @id = "form-submit", @name = "form-submit" }))
                             @MoneyHelper.showVND(model.cost)
                             /khách
                         </span><br />
-                        <a class="btn btn-warning" style="width: 30%; border-radius: 8px;">Chọn</a>
+                        <a class="btn btn-warning" style="width: 30%; border-radius: 8px;" data-toggle="modal" data-target="#detailTicketModal" data-id="@Html.DisplayFor(modelItem => model.id)">Chọn</a>
                     </div>
                 </div>
             }
@@ -565,19 +565,56 @@ else
         </div>
     </div>
 }
+<div id="detailTicketModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content"></div>
+    </div>
+</div>
 <!-- Modal -->
 <script>
-    /*heckRoundTrip($("#roundTrip").is(":checked"));
-    $(document).on("click", "#roundTrip", function () {
-        console.log($(this).is(":checked"))
-        checkRoundTrip($(this).is(":checked"));
+    $('#detailTicketModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var modal = $(this)
+        var url = "@Url.Action("DetailFlightSchedule", "Home")";
+        var id = button.attr("data-id");
+        $.ajax({
+            url: url,
+            type: "get",
+            data: {
+                id: id,
+            },
+            dataType: 'html',
+            success: function (response) {
+                modal.find(".modal-content").html(response);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                modal.modal("hide");
+                alert("An error occurred.");
+            }
+        });
     })
-    function checkRoundTrip(val) {
-        var returnDate = $("#returnDate");
-        if (val == true) {
-            returnDate.attr("style", "opacity:1");
-        } else {
-            returnDate.attr("style", "opacity:0");
-        }
-    }*/
+
+    $(document).on("click", "#detailTicketModal button", function () {
+        var id = $(this).attr("data-id");
+        var ticketID = $(this).closest(".modal-content").find(".modal-header h4 span").text();
+        var url = "@Url.Action("PayTicket", "Home")";
+        $.ajax({
+            url: url,
+            type: "get",
+            data: {
+                ticketID: ticketID,
+                flightScheduleID: parseInt(id),
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response.status == "200") {
+                    window.location.href = "@Url.Action("Index","Home")";
+                } else {
+                    alert(response.message);
+                }
+            }
+        });
+    });
+
 </script>

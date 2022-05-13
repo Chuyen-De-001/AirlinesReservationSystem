@@ -55,7 +55,7 @@
                             <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i>  @AuthHelper.getIdentity().email <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">HTML</a></li>
-                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">Your Ticket</a></li>
                                 <li><a href="@Url.Action("Logout","Security")">Log out</a></li>
                             </ul>
                         </li>
@@ -183,8 +183,10 @@
         </div>
     </div>
 
+    
+
     @Html.Raw(AlertHelper.showToast())
-    <script>
+<script>
         $(document).on("submit", "form[name=loginForm]", function (event) {
             event.preventDefault();
             var url = "@Url.Action("Login", "Security")";
@@ -237,7 +239,9 @@
             });
             return false;
         });
-    </script>
+
+
+</script>
 </body>
 
 <!-- Mirrored from www.tooplate.com/templates/2093_flight/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 May 2018 10:39:55 GMT -->
