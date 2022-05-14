@@ -33,6 +33,7 @@
     <script src="~/Scripts/js/vendor/bootstrap.min.js"></script>
     <script src="~/Scripts/js/plugins.js"></script>
     <script src="~/Scripts/js/main.js"></script>
+    <script src="~/Scripts/custom.js"></script>
     <link rel="Shortcut Icon" href="~/Asset/img/logo-i.png" type="img/x-icon" />
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
@@ -41,7 +42,7 @@
 </head>
 
 <body>
-    <div class="container-fluid" style="position: absolute; width: 100%; background-color: rgb(0 0 0 / 53%); z-index: 100; height:80px">
+    <div class="container-fluid" style="width: 100%; background-color: rgb(0 0 0 / 53%); z-index: 100; height:80px">
         <nav class="navbar container" style="margin-top: 0px; margin-bottom: 0px; padding:20px">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -55,7 +56,7 @@
                             <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i>  @AuthHelper.getIdentity().email <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">HTML</a></li>
-                                <li><a href="#">Your Ticket</a></li>
+                                <li><a href="@Url.Action("YourTicket","Home")">Your Ticket</a></li>
                                 <li><a href="@Url.Action("Logout","Security")">Log out</a></li>
                             </ul>
                         </li>
@@ -76,7 +77,9 @@
             </div>
         </nav>
     </div>
-    @RenderBody()
+    <div class="content">
+        @RenderBody()
+    </div>
     <footer>
         <div class="container">
             <div class="row">

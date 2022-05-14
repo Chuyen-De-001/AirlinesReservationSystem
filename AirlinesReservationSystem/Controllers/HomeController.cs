@@ -8,6 +8,7 @@ using AirlinesReservationSystem.Models;
 using AirlinesReservationSystem.Helper;
 using System.Data.Entity.Core.Objects;
 using Newtonsoft.Json;
+using System.Data.Entity;
 
 namespace AirlinesReservationSystem.Controllers
 {
@@ -90,6 +91,7 @@ namespace AirlinesReservationSystem.Controllers
             ticket.user_id = AuthHelper.getIdentity().id;
             ticket.flight_schedules_id = flightScheduleID;
             ticket.status = TicketManager.STATUS_PAY;
+            ticket.code = ticketID;
             if (ModelState.IsValid)
             {
                 db.TicketManagers.Add(ticket);
@@ -108,8 +110,36 @@ namespace AirlinesReservationSystem.Controllers
             {
                 return RedirectToAction("Index");
             }
-            return View();
+            User user = AuthHelper.getIdentity();
+            IEnumerable<TicketManager> ticketManagers = db.TicketManagers.Where(s => s.user_id == user.id).ToList();
+            return View(ticketManagers);
         }
 
+        public ActionResult DetailTicket(int id)
+        {
+            TicketManager ticket = db.TicketManagers.Where(s => s.id == id).FirstOrDefault();
+            if (ticket == null)
+            {
+                return HttpNotFound();
+            }
+            return PartialView(ticket);
+        }
+
+        public ActionResult CancelTicket(int id)
+        {
+            TicketManager ticket = db.TicketManagers.Where(s => s.id == id).FirstOrDefault();
+            if(ticket == null)
+            {
+                return HttpNotFound();
+            }
+            ticket.status = TicketManager.STATUS_CANCEL;
+            if (ModelState.IsValid)
+            {
+                db.Entry(ticket).State = EntityState.Modified;
+                db.SaveChanges();
+                AlertHelper.setToast("warning", "Cancel ticket successfull.");
+            }
+            return RedirectToAction("YourTicket", "Home");
+        }
     }
 }

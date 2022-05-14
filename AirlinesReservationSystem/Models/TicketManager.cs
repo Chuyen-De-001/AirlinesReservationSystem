@@ -26,6 +26,9 @@ namespace AirlinesReservationSystem.Models
         [DisplayName("Status")]
         public int status { get; set; }
 
+        [DisplayName("Status")]
+        public string code { get; set; }
+
         public virtual FlightSchedule FlightSchedule { get; set; }
 
         public virtual User User { get; set; }

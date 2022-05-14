@@ -401,6 +401,8 @@
     <Content Include="Views\Home\View.cshtml" />
     <Content Include="Views\Home\_View.cshtml" />
     <Content Include="Views\Home\DetailFlightSchedule.cshtml" />
+    <Content Include="Views\Home\YourTicket.cshtml" />
+    <Content Include="Views\Home\DetailTicket.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />

@@ -120,7 +120,7 @@ new { @id = "form-submit", @name = "form-submit" }))
                             @MoneyHelper.showVND(model.cost)
                             /khách
                         </span><br />
-                        <a class="btn btn-warning" style="width: 30%; border-radius: 8px;" data-toggle="modal" data-target="#detailTicketModal" data-id="@Html.DisplayFor(modelItem => model.id)">Chọn</a>
+                        <a class="btn btn-warning" style="width: 30%; border-radius: 8px;" data-toggle="modal" data-target="#detailFlightScheduleModal" data-id="@Html.DisplayFor(modelItem => model.id)">Chọn</a>
                     </div>
                 </div>
             }
@@ -565,7 +565,7 @@ else
         </div>
     </div>
 }
-<div id="detailTicketModal" class="modal fade" role="dialog">
+<div id="detailFlightScheduleModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content"></div>
@@ -573,7 +573,7 @@ else
 </div>
 <!-- Modal -->
 <script>
-    $('#detailTicketModal').on('show.bs.modal', function (event) {
+    $('#detailFlightScheduleModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
         var modal = $(this)
         var url = "@Url.Action("DetailFlightSchedule", "Home")";
@@ -595,7 +595,7 @@ else
         });
     })
 
-    $(document).on("click", "#detailTicketModal button", function () {
+    $(document).on("click", "#detailFlightScheduleModal button", function () {
         var id = $(this).attr("data-id");
         var ticketID = $(this).closest(".modal-content").find(".modal-header h4 span").text();
         var url = "@Url.Action("PayTicket", "Home")";
