@@ -22,7 +22,7 @@
                         </ul>
                     </div>
                     <div class="page-direction-button">
-                        <a href="contact.html"><i class="fa fa-phone"></i>Contact Us Now</a>
+                        <a href="contact.html"><i class="fa fa-phone"></i>Liên hệ với chúng tôi</a>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 <section id="first-tab-group" class="tabgroup">
                     <div id="tab1" style="display: block;">
                         <div class="submit-form">
-                            <h4>Check availability for <em>direction</em>:</h4>
+                            <h4>Chuyến bay:</h4>
                             @using (Html.BeginForm("Index", "Home", FormMethod.Get,
 new { @id = "form-submit", @name = "form-submit" }))
                             {
@@ -38,21 +38,21 @@ new { @id = "form-submit", @name = "form-submit" }))
                                 <div class="row">
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <label for="from">From:</label>
+                                            <label for="from">Từ:</label>
                                             @Html.DropDownList("from", null, htmlAttributes: new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.from, "", new { @class = "text-danger" })
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <label for="to">To:</label>
+                                            <label for="to">Đến:</label>
                                             @Html.DropDownList("to", null, htmlAttributes: new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.to, "", new { @class = "text-danger" })
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <label for="departure">Departure date:</label>
+                                            <label for="departure">Ngày đi:</label>
                                             @Html.EditorFor(model => model.repartureDate, new { htmlAttributes = new { @class = "form-control date", @type = "date" } })
                                             @Html.ValidationMessageFor(model => model.repartureDate, "", new { @class = "text-danger" })
                                         </fieldset>
@@ -67,7 +67,7 @@ new { @id = "form-submit", @name = "form-submit" }))
                                     <div class="clearfix"></div>
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <button type="submit" class="btn btn-warning"><i class="fa fa-search" aria-hidden="true"> Search Ticket</i></button>
+                                            <button type="submit" class="btn btn-warning"><i class="fa fa-search" aria-hidden="true"> Tìm vé</i></button>
                                         </fieldset>
                                     </div>
                                 </div>
@@ -139,7 +139,7 @@ else
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <h2>Check Weather For 5 NEXT Days</h2>
+                        <h2>Thời tiết 5 ngày tiếp theo</h2>
                     </div>
                 </div>
                 <div class="wrapper">
@@ -148,11 +148,11 @@ else
                             <div class="row">
                                 <div class="col-md-12">
                                     <ul class="tabs clearfix" data-tabgroup="second-tab-group">
-                                        <li><a href="#monday" class="active">Monday</a></li>
-                                        <li><a href="#tuesday">Tuesday</a></li>
-                                        <li><a href="#wednesday">Wednesday</a></li>
-                                        <li><a href="#thursday">Thursday</a></li>
-                                        <li><a href="#friday">Friday</a></li>
+                                        <li><a href="#monday" class="active">Thứ 2</a></li>
+                                        <li><a href="#tuesday">Thứ 3</a></li>
+                                        <li><a href="#wednesday">Thứ 4</a></li>
+                                        <li><a href="#thursday">Thứ 5</a></li>
+                                        <li><a href="#friday">Thứ 6</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-12">
@@ -161,7 +161,7 @@ else
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>Ha Noi</h6>
+                                                        <h6>Hà Nội</h6>
                                                         <div class="weather-icon">
                                                             <img href="/Asset/img/weather-icon-03.png" alt="">
                                                         </div>
@@ -176,7 +176,7 @@ else
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>Da Nang</h6>
+                                                        <h6>Đà Nẵng</h6>
                                                         <div class="weather-icon">
                                                             <img href="/Asset/img/weather-icon-02.png" alt="">
                                                         </div>
@@ -191,7 +191,7 @@ else
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>Ho Chi Minh</h6>
+                                                        <h6>TP.Hồ Chí Minh</h6>
                                                         <div class="weather-icon">
                                                             <img href="/Asset/img/weather-icon-01.png" alt="">
                                                         </div>
@@ -411,159 +411,94 @@ else
             </div>
         </div>
     </div>
-    <section class="services">
+    <section class="row services">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <div class="service-item first-service">
                         <div class="service-icon"></div>
-                        <h4>Easy Tooplate</h4>
-                        <p>Donec varius porttitor iaculis. Integer sollicitudin erat et ligula viverra vulputate. In in quam efficitur, pulvinar justo ut, tempor nunc. Phasellus pharetra quis odio.</p>
+                        <h4>Hỗ trợ khách hàng 24/7</h4>
+                        <p>Chat là có, gọi là nghe, không quản đêm hôm, ngày nghỉ và ngày lễ.</p>
 
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="service-item second-service">
                         <div class="service-icon"></div>
-                        <h4>Unique Ideas</h4>
-                        <p>Cras ligula diam, tristique at aliquam at, fermentum auctor turpis. Proin leo massa, iaculis elementum massa et, consectetur varius dolor. Fusce sed ipsum sit.</p>
+                        <h4>Thanh toán dễ dàng, đa dạng</h4>
+                        <p>Bao gồm thêm chuyển khoản ngân hàng và tiền mặt tại cửa hàng.</p>
 
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="service-item third-service">
                         <div class="service-icon"></div>
-                        <h4>Best Support</h4>
-                        <p>Fusce leo dui. Mauris et justo eget arcu ultricies porta. Nulla facilisi. Nulla nec risus sit amet magna hendrerit venenatis. Sed porta tincidunt lectus eget ultrices.</p>
+                        <h4>Săn vé giá tốt nội địa, quốc tế</h4>
+                        <p>So sánh giá tốt nhất từ các hãng hàng không nội địa và 50.000 đường bay quốc tế.</p>
 
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <div class="tabs-content" id="recommended-hotel">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-heading">
-                        <h2>Recommended Hotel For You</h2>
+    
+    <h3 class="text-center" style="margin-top:50px"><b>CÁC ĐỊA ĐIỂM ĐƯỢC GHÉ THĂM NHIỀU NHẤT</b></h3>
+    <section class="row">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="~/Asset/place/1606216163_Kinh-nghiem-tham-quan-du-lich-phuot-Cau-Vang-Da.jpg" width="100%" />
+                    <div class="carousel-caption">
+                        <h3>Sun World Ba Na Hills - Đường lên tiên cảnh</h3>
+                        <p>Đến với Sun World Ba Na Hills, du khách sẽ được trải nghiệm khí hậu bốn mùa trong một ngày, chu du trên những tuyến cáp treo, đắm chìm trong cảnh quan...</p>
                     </div>
                 </div>
-                <div class="wrapper">
-                    <div class="col-md-4">
-                        <ul class="tabs clearfix" data-tabgroup="third-tab-group">
-                            <li><a href="#livingroom" class="active">Living Room <i class="fa fa-angle-right"></i></a></li>
-                            <li><a href="#suitroom">Suit Room <i class="fa fa-angle-right"></i></a></li>
-                            <li><a href="#swimingpool">Swiming Pool <i class="fa fa-angle-right"></i></a></li>
-                            <li><a href="#massage">Massage Service <i class="fa fa-angle-right"></i></a></li>
-                            <li><a href="#fitness">Fitness Life <i class="fa fa-angle-right"></i></a></li>
-                            <li><a href="#event">Evening Event <i class="fa fa-angle-right"></i></a></li>
-                        </ul>
+
+                <div class="item">
+                    <img src="~/Asset/place/anh-2-bjed.jpg" width="100%" />
+                    <div class="carousel-caption">
+                        <h3>Quần thể danh thắng Tràng An</h3>
+                        <p>Du thuyền thăm Khu du lịch sinh thái Tràng An · Tam Cốc mùa lúa chín · Phong cảnh cố đô Hoa Lư nhìn từ núi Mã Yên · Động Vái Giời ở Thung Nham · Toàn cảnh Điện Tam ...</p>
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <section id="third-tab-group" class="recommendedgroup">
-                        <div id="livingroom" style="display: block;">
-                            <div class="text-content">
-                                <iframe width="100%" height="400px" src="https://www.youtube.com/embed/rMxTreSFMgE">
-                                </iframe>
-                            </div>
-                        </div>
-                        <div id="suitroom" style="display: none;">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div id="owl-suiteroom" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
-                                        <div class="owl-wrapper-outer">
-                                            <div class="owl-wrapper" style="width: 4500px; left: 0px; display: block; transition: all 800ms ease 0s; transform: translate3d(-750px, 0px, 0px);">
-                                                <div class="owl-item" style="width: 750px;">
-                                                    <div class="item">
-                                                        <div class="suiteroom-item">
-                                                            <img href="/Asset/img/suite-02.jpg" alt="">
-                                                            <div class="text-content">
-                                                                <h4>Clean And Relaxing Room</h4>
-                                                                <span>Aurora Resort</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div><div class="owl-item" style="width: 750px;">
-                                                    <div class="item">
-                                                        <div class="suiteroom-item">
-                                                            <img href="/Asset/img/suite-01.jpg" alt="">
-                                                            <div class="text-content">
-                                                                <h4>Special Suite Room TV</h4>
-                                                                <span>Khao Yai Hotel</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div><div class="owl-item" style="width: 750px;">
-                                                    <div class="item">
-                                                        <div class="suiteroom-item">
-                                                            <img href="/Asset/img/suite-03.jpg" alt="">
-                                                            <div class="text-content">
-                                                                <h4>The Best Sitting</h4>
-                                                                <span>Hotel Grand</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
 
-
-                                        <div class="owl-controls clickable"><div class="owl-pagination"><div class="owl-page"><span class=""></span></div><div class="owl-page active"><span class=""></span></div><div class="owl-page"><span class=""></span></div></div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="swimingpool" style="display: none;">
-                            <img href="/Asset/img/swiming-pool.jpg" alt="">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="text-content">
-                                        <h4>Lovely View Swiming Pool For Special Guests</h4>
-                                        <span>Victoria Resort and Spa</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="massage" style="display: none;">
-                            <img href="/Asset/img/massage-service.jpg" alt="">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="text-content">
-                                        <h4>Perfect Place For Relaxation</h4>
-                                        <span>Napali Beach</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="fitness" style="display: none;">
-                            <img href="/Asset/img/fitness-service.jpg" alt="">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="text-content">
-                                        <h4>Insane Street Workout</h4>
-                                        <span>Hua Hin Beach</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="event" style="display: none;">
-                            <img href="/Asset/img/evening-event.jpg" alt="">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="text-content">
-                                        <h4>Finest Winery Night</h4>
-                                        <span>Queen Restaurant</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                <div class="item">
+                    <img src="~/Asset/place/cat_ba (1).jpg" width="100%" height="500px" alt="Cát Bà" />
+                    <div class="carousel-caption">
+                        <h3>Cát Bà, Đảo Cát Bà</h3>
+                        <p>Huyện đảo Cát Bà là một quần đảo có tới 367 đảo lớn nhỏ. Cát Bà là tên hòn đảo chính rộng khoảng 100km², cách cảng Hải Phòng 30 hải lý, nằm ở phía nam Vịnh ...</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="~/Asset/place/du-lich-ninh-binh-voi-canh-dong-lua-chin.jpg" width="100%" />
+                    <div class="carousel-caption">
+                        <h3>Tam Cốc – Bích Động</h3>
+                        <p>Tam Cốc – Bích Động còn được biết đến với những cái tên nổi tiếng như "vịnh Hạ Long trên cạn" hay "Nam thiên đệ nhị động" là một khu du lịch trọng điểm quốc ...</p>
+                    </div>
                 </div>
             </div>
+
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-    </div>
+    </section>
 }
 <div id="detailFlightScheduleModal" class="modal fade" role="dialog">
     <div class="modal-dialog">

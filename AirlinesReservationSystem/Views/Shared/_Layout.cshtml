@@ -55,9 +55,10 @@
                         <li>
                             <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i>  @AuthHelper.getIdentity().email <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">HTML</a></li>
-                                <li><a href="@Url.Action("YourTicket","Home")">Your Ticket</a></li>
-                                <li><a href="@Url.Action("Logout","Security")">Log out</a></li>
+                                <li><a href="#">Đổi mật khẩu</a></li>
+                                <li><a href="#">Thông tin cấ nhân</a></li>
+                                <li><a href="@Url.Action("YourTicket","Home")">Vé của tôi</a></li>
+                                <li><a href="@Url.Action("Logout","Security")">Đăng xuất</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -66,10 +67,10 @@
                 {
                     <ul class="nav navbar-nav pull-right">
                         <li>
-                            <a data-toggle="modal" data-target="#registerModal"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a>
+                            <a data-toggle="modal" data-target="#registerModal"><i class="fa fa-user-plus" aria-hidden="true"></i> Đăng kí</a>
                         </li>
                         <li>
-                            <a data-toggle="modal" data-target="#loginModal"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Login</a>
+                            <a data-toggle="modal" data-target="#loginModal"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Đăng nhập</a>
                         </li>
                     </ul>
                 }
@@ -85,7 +86,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="primary-button">
-                        <a href="#" class="scroll-top">Back To Top</a>
+                        <a href="#" class="scroll-top">Quả lại đầu trang</a>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -114,30 +115,30 @@
                 <div class="modal-body" style="padding:20px;">
                     <div class="btn-login-facebook">
                         <i class="fa fa-facebook-official" aria-hidden="true"></i>
-                        <span>Sign in with Facebook</span>
+                        <span>Đăng nhập với Facebook</span>
                     </div>
                     <div class="btn-login-facebook">
                         <i class="fa fa-google-plus-official" aria-hidden="true"></i>
-                        <span>Sign in with Google</span>
+                        <span>Đăng nhập với Google</span>
                     </div>
-                    <p style="margin-top:20px">Or log in with your phone number, email</p>
+                    <p style="margin-top:20px">Hoặc đăng nhập bằng số điện thoại, email của bạn</p>
                     <form action="#" name="loginForm">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email" required>
+                            <input type="email" class="form-control" id="email" placeholder="Nhập vào email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter your password" pattern="[a-zA-Z0-9]{6,100}" title="Password must be more than 6 character" required>
+                            <input type="password" class="form-control" id="pwd" placeholder="Nhập vào mật khẩu" pattern="[a-zA-Z0-9]{6,100}" title="Mật khẩu phải lớn hơn 6 kí tự" required>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-warning form-control" style="border-radius:10px"><b>Login</b></button>
+                            <button type="submit" class="btn btn-warning form-control" style="border-radius:10px"><b>Đăng nhập</b></button>
                         </div>
                     </form>
                 </div>
                 <div class="text-center">
-                    <b><a href="#" style="color:blue">Forgot password</a></b>
+                    <b><a href="#" style="color:blue">Quên mật khẩu</a></b>
                 </div>
                 <div class="text-center">
-                    <b>Have account? <a href="#" style="color:blue" id="sign-in-account">Register an account</a></b>
+                    <b>Bạn chưa có tài khoản? <a href="#" style="color:blue" id="sign-in-account">Đăng ký tại đây</a></b>
                 </div>
             </div>
 
@@ -149,38 +150,35 @@
             <div class="modal-content" style="padding:20px 80px;">
                 <div class="modal-header text-center">
                     <button type="button" class="close" data-dismiss="modal" style="font-size:5rem">&times;</button>
-                    <h2 class="modal-title">Sign Up</h2>
+                    <h2 class="modal-title">Đăng ký</h2>
                 </div>
                 <div class="modal-body" style="padding:20px;">
                     <div class="btn-login-facebook">
                         <i class="fa fa-facebook-official" aria-hidden="true"></i>
-                        <span>Sign up with Facebook</span>
+                        <span>Đăng ký với Facebook</span>
                     </div>
                     <div class="btn-login-facebook">
                         <i class="fa fa-google-plus-official" aria-hidden="true"></i>
-                        <span>Sign up with Google</span>
+                        <span>Đăng ký với Google</span>
                     </div>
                     <p style="margin-top:20px">Or log in with your phone number, email</p>
                     <form action="@Url.Action("Register", "Security")" method="get" name="registerForm">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email" required>
+                            <input type="email" class="form-control" id="email" placeholder="Nhập vào email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter your password" pattern="[a-zA-Z0-9]{6,100}" title="Password must be more than 6 character" required>
+                            <input type="password" class="form-control" id="pwd" name="password" placeholder="Nhập vào mật khẩu" pattern="[a-zA-Z0-9]{6,100}" title="Mật khẩu phải lớn hơn 6 kí tự" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="re-pwd" name="re-password" placeholder="Enter your re-password" pattern="[a-zA-Z0-9]{6,100}" title="Re-Password must be more than 6 character" required>
+                            <input type="password" class="form-control" id="re-pwd" name="re-password" placeholder="Nhạp lại mật khẩu" pattern="[a-zA-Z0-9]{6,100}" title="Mật khẩu phải lớn hơn 6 kí tự" required>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-warning form-control" style="border-radius:10px"><b>Sign Up</b></button>
+                            <button type="submit" class="btn btn-warning form-control" style="border-radius:10px"><b>Đăng ký</b></button>
                         </div>
                     </form>
                 </div>
                 <div class="text-center">
-                    <b><a href="#" style="color:blue">Forgot password</a></b>
-                </div>
-                <div class="text-center">
-                    <b>Haven't account? <a href="#" style="color:blue" id="sign-up-account">Sign In an account</a></b>
+                    <b>Bạn đã có tài khoản? <a href="#" style="color:blue" id="sign-up-account">Đăng nhập tại đây</a></b>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-namespace AirlinesReservationSystem.Models
+﻿namespace AirlinesReservationSystem.Models
 {
     using System;
     using System.Collections.Generic;
@@ -18,27 +18,27 @@ namespace AirlinesReservationSystem.Models
         [DisplayName("ID")]
         public int id { get; set; }
 
-        [DisplayName("Plane ID")]
+        [DisplayName("Máy bay")]
         public int plane_id { get; set; }
 
-        [DisplayName("From")]
+        [DisplayName("Từ")]
         public int from_airport { get; set; }
 
-        [DisplayName("To")]
+        [DisplayName("Đến")]
         public int to_airport { get; set; }
 
-        [DisplayName("Departures At")]
+        [DisplayName("Thời gian đi")]
         [DataType(DataType.DateTime)]
         public DateTime departures_at { get; set; }
 
-        [DisplayName("Arrivals At")]
+        [DisplayName("Thời gian đến")]
         [DataType(DataType.DateTime)]
         public DateTime arrivals_at { get; set; }
 
-        [DisplayName("Cost")]
+        [DisplayName("Giá")]
         public int cost { get; set; }
 
-        [DisplayName("Code")]
+        [DisplayName("Mã")]
         public string code { get; set; }
 
         [DisplayName("From")]

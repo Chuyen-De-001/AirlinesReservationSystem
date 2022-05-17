@@ -13,16 +13,16 @@
             <table class="table">
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.FlightSchedule.code)
+                        Code FlightSchedule
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.User.email)
+                        Email
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.status)
+                        Status
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.code)
+                        Code Ticket
                     </th>
                     <th></th>
                 </tr>
@@ -37,14 +37,18 @@
                             @Html.DisplayFor(modelItem => item.User.email)
                         </td>
                         <td>
-                            @item.getStatus()
+                            <span class="label label-@item.getLabelStatus()">@item.getStatus()</span>
+                            
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.code)
                         </td>
                         <td>
                             <a title="Detail Ticket" data-toggle="modal" data-target="#detailTickModal" data-id="@item.id"><i class="fa fa-eye" aria-hidden="true"></i> |</a>
-                            <a title="Cancel Ticket" data-id="@item.id" href="@Url.Action("CancelTicket","Home",new { @id = item.id})" data-confirm="Are your sure canecl ticket?"><i class="fa fa-ban" aria-hidden="true"></i></a>
+                            @if (!item.isCancel())
+                            {
+                                <a title="Cancel Ticket" data-id="@item.id" href="@Url.Action("CancelTicket","Home",new { @id = item.id})" data-confirm="Are your sure canecl ticket?"><i class="fa fa-ban" aria-hidden="true"></i></a>
+                            }
                         </td>
                     </tr>
                 }

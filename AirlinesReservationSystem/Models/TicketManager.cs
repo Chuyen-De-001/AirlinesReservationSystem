@@ -1,4 +1,4 @@
-namespace AirlinesReservationSystem.Models
+﻿namespace AirlinesReservationSystem.Models
 {
     using System;
     using System.Collections.Generic;
@@ -23,10 +23,10 @@ namespace AirlinesReservationSystem.Models
         [DisplayName("User")]
         public int user_id { get; set; }
 
-        [DisplayName("Status")]
+        [DisplayName("Trạng thái")]
         public int status { get; set; }
 
-        [DisplayName("Status")]
+        [DisplayName("Mã")]
         public string code { get; set; }
 
         public virtual FlightSchedule FlightSchedule { get; set; }
@@ -46,6 +46,33 @@ namespace AirlinesReservationSystem.Models
                     break;
             }
             return status;
+        }
+
+        public bool isCancel()
+        {
+            if(this.status == TicketManager.STATUS_CANCEL)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public string getLabelStatus()
+        {
+            string label = "";
+            switch (this.status)
+            {
+                case TicketManager.STATUS_CANCEL:
+                    label = "danger";
+                    break;
+                case TicketManager.STATUS_PAY:
+                    label = "success";
+                    break;
+                default:
+                    label = "success";
+                    break;
+            }
+            return label;
         }
     }
 }

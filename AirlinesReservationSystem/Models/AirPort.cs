@@ -1,4 +1,4 @@
-namespace AirlinesReservationSystem.Models
+﻿namespace AirlinesReservationSystem.Models
 {
     using System;
     using System.Collections.Generic;
@@ -21,17 +21,17 @@ namespace AirlinesReservationSystem.Models
         public int id { get; set; }
 
         [Required]
-        [DisplayName("Name")]
+        [DisplayName("Tên")]
         [StringLength(255)]
         public string name { get; set; }
 
         [Required]
-        [DisplayName("Code")]
+        [DisplayName("Mã")]
         [StringLength(255)]
         public string code { get; set; }
 
         [Required]
-        [DisplayName("Address")]
+        [DisplayName("Địa chỉ")]
         [StringLength(255)]
         public string address { get; set; }
 

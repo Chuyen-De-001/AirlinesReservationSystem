@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<AirlinesReservationSystem.Models.TicketManager>
 
 @{
-    ViewBag.Title = "List Ticket";
+    ViewBag.Title = "Danh sách vé";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,7 +11,7 @@
             <b>@ViewBag.Title</b>
         </div>
         <div class="card-body table-responsive">
-            <a href="@Url.Action("Create")" class="btn btn-warning mb-3"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
+            <a href="@Url.Action("Create")" class="btn btn-primary mb-3"><i class="fa fa-plus" aria-hidden="true"></i> Thêm dữ liệu</a>
             <table class="table table-striped">
                 <tr>
                     <th>

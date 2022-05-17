@@ -243,6 +243,11 @@
     <Content Include="Asset\img\weather-icon-02.png" />
     <Content Include="Asset\img\weather-icon-03.png" />
     <Content Include="Asset\logo.png" />
+    <Content Include="Asset\place\1606216163_Kinh-nghiem-tham-quan-du-lich-phuot-Cau-Vang-Da.jpg" />
+    <Content Include="Asset\place\anh-2-bjed.jpg" />
+    <Content Include="Asset\place\cat_ba %281%29.jpg" />
+    <Content Include="Asset\place\cat_ba.jpg" />
+    <Content Include="Asset\place\du-lich-ninh-binh-voi-canh-dong-lua-chin.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />

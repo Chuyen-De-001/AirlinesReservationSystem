@@ -8,11 +8,11 @@
 <div class="container-fluid mt-2">
     <div class="card">
         <div class="card-header">
-            <b>List User</b>
+            <b>Danh sach người dùng</b>
         </div>
         <div class="card-body">
             <p>
-                <a class="btn btn-warning text-white" href="@Url.Action("Create")"><i class="fa fa-plus" aria-hidden="true"></i> Create User</a>
+                <a class="btn btn-primary text-white" href="@Url.Action("Create")"><i class="fa fa-plus" aria-hidden="true"></i> Thêm người dung</a>
                 
             </p>
             <table class="table table-striped">
@@ -67,7 +67,7 @@
                         </td>
                         <td>
                             <a href="@Url.Action("Edit",new { id = item.id })"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
-                            <a href="@Url.Action("Delete",new { id = item.id })" data-confirm="Are you sure?"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            <a href="@Url.Action("Delete",new { id = item.id })" data-confirm="Bạn có chắc chắn?"><i class="fa fa-trash" aria-hidden="true"></i></a>
                         </td>
                     </tr>
                 }

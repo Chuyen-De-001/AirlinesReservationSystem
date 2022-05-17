@@ -25,7 +25,7 @@
         [DisplayName("ID")]
         public int id { get; set; }
 
-        [DisplayName("Name")]
+        [DisplayName("Tên")]
         [StringLength(255)]
         public string name { get; set; }
 
@@ -38,20 +38,20 @@
         [StringLength(255)]
         public string cccd { get; set; }
 
-        [DisplayName("Address")]
+        [DisplayName("Địa chỉ")]
         [StringLength(255)]
         public string address { get; set; }
 
-        [DisplayName("Phone Number")]
+        [DisplayName("SĐT")]
         [StringLength(255)]
         public string phone_number { get; set; }
 
         [Required]
-        [DisplayName("Password")]
+        [DisplayName("Mật khẩu")]
         [StringLength(255)]
         public string password { get; set; }
 
-        [DisplayName("User Type")]
+        [DisplayName("Phân loại")]
         public int user_type { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

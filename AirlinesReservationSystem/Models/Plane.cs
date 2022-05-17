@@ -21,12 +21,12 @@ namespace AirlinesReservationSystem.Models
         public int id { get; set; }
 
         [Required]
-        [DisplayName("Name")]
+        [DisplayName("Tên máy bay")]
         [StringLength(255)]
         public string name { get; set; }
 
         [Required]
-        [DisplayName("Code")]
+        [DisplayName("Mã")]
         [StringLength(255)]
         public string code { get; set; }
 
