@@ -66,5 +66,24 @@
             }
             return false;
         }
+
+        public string getType()
+        {
+            string response = "";
+            switch (this.user_type)
+            {
+
+                case User.TYPE_ADMIN:
+                    response = "ADMIN";
+                    break;
+                case User.TYPE_CUSTOM:
+                    response = "CUSTOM";
+                    break;
+                default:
+                    response = "CUSTOM";
+                    break;
+            }
+            return response;
+        }
     }
 }

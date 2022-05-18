@@ -55,8 +55,7 @@
                         <li>
                             <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i>  @AuthHelper.getIdentity().email <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Đổi mật khẩu</a></li>
-                                <li><a href="#">Thông tin cấ nhân</a></li>
+                                <li><a href="@Url.Action("EditUser","Home",new { @id = AuthHelper.getIdentity().id})">Thông tin cấ nhân</a></li>
                                 <li><a href="@Url.Action("YourTicket","Home")">Vé của tôi</a></li>
                                 <li><a href="@Url.Action("Logout","Security")">Đăng xuất</a></li>
                             </ul>

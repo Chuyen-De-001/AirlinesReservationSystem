@@ -9,6 +9,7 @@ using AirlinesReservationSystem.Helper;
 using System.Data.Entity.Core.Objects;
 using Newtonsoft.Json;
 using System.Data.Entity;
+using System.Net;
 
 namespace AirlinesReservationSystem.Controllers
 {
@@ -84,7 +85,7 @@ namespace AirlinesReservationSystem.Controllers
             if (!AuthHelper.isLogin())
             {
                 response["status"] = "400";
-                response["message"] = "Must login before buying tickets.";
+                response["message"] = "Phải đăng nhập mới có thể mua được vé.";
                 return Content(JsonConvert.SerializeObject(response));
             }
             TicketManager ticket = new TicketManager();
@@ -96,12 +97,10 @@ namespace AirlinesReservationSystem.Controllers
             {
                 db.TicketManagers.Add(ticket);
                 db.SaveChanges();
-                AlertHelper.setToast("success", "Order ticket successfully.");
+                AlertHelper.setToast("success", "Đặt vé thành công.");
 
             }
             return Content(JsonConvert.SerializeObject(response));
-
-
         }
 
         public ActionResult YourTicket()
@@ -137,9 +136,40 @@ namespace AirlinesReservationSystem.Controllers
             {
                 db.Entry(ticket).State = EntityState.Modified;
                 db.SaveChanges();
-                AlertHelper.setToast("warning", "Cancel ticket successfull.");
+                AlertHelper.setToast("warning", "Hủy vé thành công.");
             }
             return RedirectToAction("YourTicket", "Home");
+        }
+
+        public ActionResult EditUser(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            User user = db.Users.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+        // POST: Admin/Users/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditUser([Bind(Include = "id,name,email,cccd,address,phone_number,password,user_type")] User user)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(user).State = EntityState.Modified;
+                db.SaveChanges();
+                AlertHelper.setToast("success", "Cập nhập thông tin khách hàng thành công.");
+                return RedirectToAction("EditUser");
+            }
+            return View(user);
         }
     }
 }
