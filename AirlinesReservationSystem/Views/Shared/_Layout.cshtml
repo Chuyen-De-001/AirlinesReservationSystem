@@ -55,6 +55,7 @@
                         <li>
                             <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i>  @AuthHelper.getIdentity().email <span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                <li><a href="#" data-toggle="modal" data-target="#changPasswordModal">Đổi mật khẩu</a></li>
                                 <li><a href="@Url.Action("EditUser","Home",new { @id = AuthHelper.getIdentity().id})">Thông tin cấ nhân</a></li>
                                 <li><a href="@Url.Action("YourTicket","Home")">Vé của tôi</a></li>
                                 <li><a href="@Url.Action("Logout","Security")">Đăng xuất</a></li>
@@ -121,12 +122,12 @@
                         <span>Đăng nhập với Google</span>
                     </div>
                     <p style="margin-top:20px">Hoặc đăng nhập bằng số điện thoại, email của bạn</p>
-                    <form action="#" name="loginForm">
+                    <form action="#" name="loginForm" method="get">
                         <div class="form-group">
                             <input type="email" class="form-control" id="email" placeholder="Nhập vào email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="pwd" placeholder="Nhập vào mật khẩu" pattern="[a-zA-Z0-9]{6,100}" title="Mật khẩu phải lớn hơn 6 kí tự" required>
+                            <input type="password" class="form-control" id="pwd" placeholder="Nhập vào mật khẩu" name="password" pattern="[a-zA-Z0-9]{6,100}" title="Mật khẩu phải lớn hơn 6 kí tự" required>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-warning form-control" style="border-radius:10px"><b>Đăng nhập</b></button>
@@ -182,11 +183,68 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="changPasswordModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content" style="padding:20px 80px;">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" style="font-size:5rem">&times;</button>
+                    <h2 class="modal-title">Đổi mật khẩu</h2>
+                </div>
+                <div class="modal-body" style="padding:20px;">
+                    <form action="@Url.Action("ChangePassword", "Home")" method="get" name="changPasswordForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="email" placeholder="Nhập vào mật khẩu hiện tại" name="old_password" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="pwd" name="new_password" placeholder="Nhập vào mật khẩu mới" pattern="[a-zA-Z0-9]{6,100}" title="Mật khẩu phải lớn hơn 6 kí tự" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="re-pwd" name="re_password" placeholder="Nhạp lại mật khẩu mới" pattern="[a-zA-Z0-9]{6,100}" title="Mật khẩu phải lớn hơn 6 kí tự" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-warning form-control" style="border-radius:10px"><b>Lưu</b></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    
+
 
     @Html.Raw(AlertHelper.showToast())
 <script>
+
+    $(document).on("submit", "form[name=changPasswordForm]", function (event) {
+            event.preventDefault();
+            var url = "@Url.Action("ChangePassword", "Home")";
+            var old_password = $(this).find("input[name=old_password]").val();
+            var new_password = $(this).find("input[name=new_password]").val();
+            var re_password = $(this).find("input[name=re_password]").val();
+            if (new_password != re_password) {
+                alert("Mật khẩu mới không khớp.");
+                return false;
+            }
+            $.ajax({
+                url: url,
+                type: "get",
+                data: {
+                    old_password: old_password,
+                    new_password: new_password
+                },
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status == "200") {
+                        window.location.href = "@Url.Action("Index","Home")";
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+            return false;
+        });
+
         $(document).on("submit", "form[name=loginForm]", function (event) {
             event.preventDefault();
             var url = "@Url.Action("Login", "Security")";

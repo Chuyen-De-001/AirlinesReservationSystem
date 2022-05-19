@@ -171,5 +171,28 @@ namespace AirlinesReservationSystem.Controllers
             }
             return View(user);
         }
+
+        public ActionResult ChangePassword(string old_password,string new_password)
+        {
+            Dictionary<string, string> response = new Dictionary<string, string>();
+            response["status"] = "200";
+            response["message"] = "";
+            User identity = AuthHelper.getIdentity();
+            if(identity.password != old_password)
+            {
+                response["status"] = "400";
+                response["message"] = "Sai thông tin mật khẩu cũ.";
+                return Content(JsonConvert.SerializeObject(response));
+            }
+            User user = db.Users.Find(identity.id);
+            if (user != null) {
+                user.password = new_password;
+                db.SaveChanges();
+                response["status"] = "200";
+                response["message"] = "Đổi mật khẩu thành công.";
+                AlertHelper.setToast("success", "Đổi mật khẩu thành công");
+            }
+            return Content(JsonConvert.SerializeObject(response));
+        }
     }
 }

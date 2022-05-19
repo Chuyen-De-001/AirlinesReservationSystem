@@ -20,15 +20,16 @@ namespace AirlinesReservationSystem.Controllers
 			response["status"] = "200";
 			response["message"] = "";
 			User user = Conection.getDb().Users.Where(s => s.email == email).FirstOrDefault();
-			if(user == null)
+			if(user == null || user.password != password)
             {
 				response["status"] = "400";
-				response["message"] = "Invalid account or password.";
+				response["message"] = "Thông tin tài khoản không hợp lệ.";
             }
             else
             {
+
 				AuthHelper.setIdentity(user);
-				AlertHelper.setToast("success", "Login successfully.");
+				AlertHelper.setToast("success", "Đăng nhập thành công.");
 			}
 			return Content(JsonConvert.SerializeObject(response));
 		}
@@ -38,7 +39,7 @@ namespace AirlinesReservationSystem.Controllers
 			if(AuthHelper.isLogin() == true)
             {
 				AuthHelper.removeIdentity();
-				AlertHelper.setToast("warning", "Logout successfully");
+				AlertHelper.setToast("warning", "Đăng xuất thành công.");
 			}
 			return RedirectToAction("Index", "Home");
         }
@@ -51,13 +52,13 @@ namespace AirlinesReservationSystem.Controllers
 			if(rePassword != password)
             {
 				response["status"] = "400";
-				response["message"] = "Re-password does not match password.";
+				response["message"] = "Mật khẩu không khớp nhau.";
 				return Content(JsonConvert.SerializeObject(response));
 			}
 			if(Models.User.emailExists(email) == true)
             {
 				response["status"] = "400";
-				response["message"] = "This email already exists.";
+				response["message"] = "Email này đã tồn tại.";
 				return Content(JsonConvert.SerializeObject(response));
 			}
 			User model = new User();
@@ -68,8 +69,8 @@ namespace AirlinesReservationSystem.Controllers
             {
 				db.Users.Add(model);
 				db.SaveChanges();
-				AlertHelper.setToast("success", "Successfully created new account.");
-				response["message"] = "Successfully created new account.";
+				AlertHelper.setToast("success", "Tạo tài khoản mới thành công.");
+				response["message"] = "Tạo tài khoản mới thành công.";
             }
             else
             {
