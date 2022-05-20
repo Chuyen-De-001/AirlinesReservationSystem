@@ -56,7 +56,7 @@
                             <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i>  @AuthHelper.getIdentity().email <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#" data-toggle="modal" data-target="#changPasswordModal">Đổi mật khẩu</a></li>
-                                <li><a href="@Url.Action("EditUser","Home",new { @id = AuthHelper.getIdentity().id})">Thông tin cấ nhân</a></li>
+                                <li><a href="@Url.Action("EditUser","Home",new { @id = AuthHelper.getIdentity().id})">Thông tin cá nhân</a></li>
                                 <li><a href="@Url.Action("YourTicket","Home")">Vé của tôi</a></li>
                                 <li><a href="@Url.Action("Logout","Security")">Đăng xuất</a></li>
                             </ul>
@@ -86,7 +86,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="primary-button">
-                        <a href="#" class="scroll-top">Quả lại đầu trang</a>
+                        <a href="#" class="scroll-top">Quay lại đầu trang</a>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -170,7 +170,7 @@
                             <input type="password" class="form-control" id="pwd" name="password" placeholder="Nhập vào mật khẩu" pattern="[a-zA-Z0-9]{6,100}" title="Mật khẩu phải lớn hơn 6 kí tự" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="re-pwd" name="re-password" placeholder="Nhạp lại mật khẩu" pattern="[a-zA-Z0-9]{6,100}" title="Mật khẩu phải lớn hơn 6 kí tự" required>
+                            <input type="password" class="form-control" id="re-pwd" name="re-password" placeholder="Nhập lại mật khẩu" pattern="[a-zA-Z0-9]{6,100}" title="Mật khẩu phải lớn hơn 6 kí tự" required>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-warning form-control" style="border-radius:10px"><b>Đăng ký</b></button>

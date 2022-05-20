@@ -69,7 +69,11 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.user_type, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.user_type, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.DropDownList("user_type", new List<SelectListItem>
+                             {
+                             new SelectListItem {Text = "Admin", Value = "0"},
+                             new SelectListItem {Text = "Custom", Value = "1"},
+                             }, htmlAttributes: new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.user_type, "", new { @class = "text-danger" })
                         </div>
                     </div>

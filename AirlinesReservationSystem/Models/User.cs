@@ -14,6 +14,13 @@
         private static Model1 db = new Model1();
         public const  int TYPE_ADMIN = 0;
         public const int TYPE_CUSTOM = 1;
+        public const TYPE = new Dictionary<int, string> {
+          { 1, "Admin" },
+          { 2, "Custom" },
+          { 3, "Charlie" }
+        };
+
+
 
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
