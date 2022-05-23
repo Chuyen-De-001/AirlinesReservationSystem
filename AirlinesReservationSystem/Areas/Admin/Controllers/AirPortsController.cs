@@ -53,7 +53,7 @@ namespace AirlinesReservationSystem.Areas.Admin.Controllers
             {
                 db.AirPorts.Add(airPort);
                 db.SaveChanges();
-                AlertHelper.setAlert("success", "Create AirPort successfully.");
+                AlertHelper.setAlert("success", "Tạo dữ liệu sân bay thành công.");
                 return RedirectToAction("Index");
             }
 
@@ -86,7 +86,7 @@ namespace AirlinesReservationSystem.Areas.Admin.Controllers
             {
                 db.Entry(airPort).State = EntityState.Modified;
                 db.SaveChanges();
-                AlertHelper.setAlert("success", "Update AirPort successfully.");
+                AlertHelper.setAlert("success", "Cập nhập thông tin sân bay thành công.");
                 return RedirectToAction("Index");
             }
             return View(airPort);

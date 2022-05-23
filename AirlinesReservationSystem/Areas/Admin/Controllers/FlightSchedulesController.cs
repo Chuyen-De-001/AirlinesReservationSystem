@@ -57,7 +57,7 @@ namespace AirlinesReservationSystem.Areas.Admin.Controllers
             {
                 db.FlightSchedules.Add(flightSchedule);
                 db.SaveChanges();
-                AlertHelper.setAlert("success", "Create FlightSchedule successfully.");
+                AlertHelper.setAlert("success", "Tạo dữ liệu chuyến bay thành công.");
                 return RedirectToAction("Index");
             }
 
@@ -96,7 +96,7 @@ namespace AirlinesReservationSystem.Areas.Admin.Controllers
             {
                 db.Entry(flightSchedule).State = EntityState.Modified;
                 db.SaveChanges();
-                AlertHelper.setAlert("success", "Update FlightSchedule successfully.");
+                AlertHelper.setAlert("success", "Cập nhập thông tin chuyến bay thành công.");
                 return RedirectToAction("Index");
             }
             ViewBag.from_airport = new SelectList(db.AirPorts, "id", "name", flightSchedule.from_airport);
@@ -114,7 +114,7 @@ namespace AirlinesReservationSystem.Areas.Admin.Controllers
             }
             FlightSchedule flightSchedule = db.FlightSchedules.Find(id);
             db.FlightSchedules.Remove(flightSchedule);
-            AlertHelper.setAlert("success", "Delete FlightSchedule successfully.");
+            AlertHelper.setAlert("success", "Xóa dữ liệu chuyến bay thành công.");
             db.SaveChanges();
             return RedirectToAction("Index");
         }

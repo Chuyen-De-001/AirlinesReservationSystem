@@ -36,12 +36,12 @@ namespace AirlinesReservationSystem.Areas.Admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("password", "Invalid password.");
+                    ModelState.AddModelError("password", "Mật khẩu không hợp lệ.");
                 }
             }
             else
             {
-                ModelState.AddModelError("email", "Email not found.");
+                ModelState.AddModelError("email", "Email không được tìm thấy.");
             }
             return View();
         }

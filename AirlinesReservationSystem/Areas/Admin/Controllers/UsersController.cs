@@ -63,13 +63,13 @@ namespace AirlinesReservationSystem.Areas.Admin.Controllers
             var emailExit = db.Users.FirstOrDefault(u => u.email == user.email);
             if(emailExit != null)
             {
-                ModelState.AddModelError("email", "Email already exists.");
+                ModelState.AddModelError("email", "Email đã tồn tại.");
             }
             if (ModelState.IsValid)
             {
                 db.Users.Add(user);
                 db.SaveChanges();
-                AlertHelper.setAlert("success", "Create user successfully.");
+                AlertHelper.setAlert("success", "Tạo dữ liệu người dùng thành công.");
                 return RedirectToAction("Index");
             }
             return View(user);
@@ -112,7 +112,7 @@ namespace AirlinesReservationSystem.Areas.Admin.Controllers
             User user = db.Users.Find(id);
             db.Users.Remove(user);
             db.SaveChanges();
-            AlertHelper.setAlert("success", "Remove user successfully.");
+            AlertHelper.setAlert("success", "Xóa dữ liệu người dùng thành công.");
             return RedirectToAction("Index");
         }
         protected override void Dispose(bool disposing)
