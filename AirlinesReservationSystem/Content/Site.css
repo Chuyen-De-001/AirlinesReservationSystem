@@ -42,3 +42,16 @@ a {
     background-color: transparent;
     border-color: #337ab7;
 }
+
+footer a{
+    color:white!important;
+}
+footer li {
+    padding:10px
+}
+
+footer p {
+    color: #fff;
+    font-size: 12px;
+    margin-top: 0px;
+}

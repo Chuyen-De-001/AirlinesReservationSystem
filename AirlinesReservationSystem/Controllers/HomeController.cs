@@ -77,7 +77,7 @@ namespace AirlinesReservationSystem.Controllers
         }
 
         [HttpGet]
-        public ActionResult PayTicket(string ticketID,int flightScheduleID)
+        public ActionResult PayTicket(string ticketID,int flightScheduleID,int amount = 1)
         {
             Dictionary<string, string> response = new Dictionary<string, string>();
             response["status"] = "200";
@@ -88,18 +88,24 @@ namespace AirlinesReservationSystem.Controllers
                 response["message"] = "Phải đăng nhập mới có thể mua được vé.";
                 return Content(JsonConvert.SerializeObject(response));
             }
-            TicketManager ticket = new TicketManager();
-            ticket.user_id = AuthHelper.getIdentity().id;
-            ticket.flight_schedules_id = flightScheduleID;
-            ticket.status = TicketManager.STATUS_PAY;
-            ticket.code = ticketID;
-            if (ModelState.IsValid)
+            for (int i = 0; i < amount; i++)
             {
-                db.TicketManagers.Add(ticket);
-                db.SaveChanges();
-                AlertHelper.setToast("success", "Đặt vé thành công.");
-
+                TicketManager ticket = new TicketManager();
+                ticket.user_id = AuthHelper.getIdentity().id;
+                ticket.flight_schedules_id = flightScheduleID;
+                ticket.status = TicketManager.STATUS_PAY;
+                ticket.code = ticketID+""+i.ToString();
+                if (ModelState.IsValid)
+                {
+                    db.TicketManagers.Add(ticket);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    AlertHelper.setToast("danger", "Đặt vé không thành công.");
+                }
             }
+            AlertHelper.setToast("success", "Đặt vé thành công.");
             return Content(JsonConvert.SerializeObject(response));
         }
 
@@ -193,6 +199,11 @@ namespace AirlinesReservationSystem.Controllers
                 AlertHelper.setToast("success", "Đổi mật khẩu thành công");
             }
             return Content(JsonConvert.SerializeObject(response));
+        }
+
+        public ActionResult About()
+        {
+            return View();
         }
     }
 }
