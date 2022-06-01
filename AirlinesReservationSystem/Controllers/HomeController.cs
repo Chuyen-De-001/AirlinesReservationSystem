@@ -205,5 +205,10 @@ namespace AirlinesReservationSystem.Controllers
         {
             return View();
         }
+
+        public ActionResult Deals()
+        {
+            return View();
+        }
     }
 }

@@ -51,28 +51,34 @@
                 </div>
                 @if (AuthHelper.isLogin() == true)
                 {
-                    <ul class="nav navbar-nav pull-right">
-                        <li>
-                            <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i>  @AuthHelper.getIdentity().email <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#" data-toggle="modal" data-target="#changPasswordModal">Đổi mật khẩu</a></li>
-                                <li><a href="@Url.Action("EditUser","Home",new { @id = AuthHelper.getIdentity().id})">Thông tin cá nhân</a></li>
-                                <li><a href="@Url.Action("YourTicket","Home")">Vé của tôi</a></li>
-                                <li><a href="@Url.Action("Logout","Security")">Đăng xuất</a></li>
-                            </ul>
-                        </li>
+            <ul class="nav navbar-nav pull-right">
+                <li>
+                    <a href="@Url.Action("Deals")"><i class="fa fa-gift" aria-hidden="true"></i> Ưu đãi</a>
+                </li>
+                <li>
+                    <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i>  @AuthHelper.getIdentity().email <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" data-toggle="modal" data-target="#changPasswordModal">Đổi mật khẩu</a></li>
+                        <li><a href="@Url.Action("EditUser","Home",new { @id = AuthHelper.getIdentity().id})">Thông tin cá nhân</a></li>
+                        <li><a href="@Url.Action("YourTicket","Home")">Vé của tôi</a></li>
+                        <li><a href="@Url.Action("Logout","Security")">Đăng xuất</a></li>
                     </ul>
+                </li>
+            </ul>
                 }
                 else
                 {
-                    <ul class="nav navbar-nav pull-right">
-                        <li>
-                            <a data-toggle="modal" data-target="#registerModal"><i class="fa fa-user-plus" aria-hidden="true"></i> Đăng kí</a>
-                        </li>
-                        <li>
-                            <a data-toggle="modal" data-target="#loginModal"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Đăng nhập</a>
-                        </li>
-                    </ul>
+            <ul class="nav navbar-nav pull-right">
+                <li>
+                    <a href="@Url.Action("Deals")"><i class="fa fa-gift" aria-hidden="true"></i> Ưu đãi</a>
+                </li>
+                <li>
+                    <a data-toggle="modal" data-target="#registerModal"><i class="fa fa-user-plus" aria-hidden="true"></i> Đăng kí</a>
+                </li>
+                <li>
+                    <a data-toggle="modal" data-target="#loginModal"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Đăng nhập</a>
+                </li>
+            </ul>
                 }
 
             </div>

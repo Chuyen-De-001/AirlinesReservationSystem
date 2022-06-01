@@ -211,7 +211,10 @@
     <Content Include="App_Data\sql\script-v3.sql" />
     <Content Include="App_Data\sql\sql-v2.sql" />
     <Content Include="App_Data\sql\sql-v1.sql" />
+    <Content Include="Asset\img\bamboo-airways-di-anh-uc-duc1.jpg" />
     <Content Include="Asset\img\banner-bg.jpg" />
+    <Content Include="Asset\img\bay-mua-thu-bamboo-airways-1.jpg" />
+    <Content Include="Asset\img\bay-quoc-te-bamboo-airways.jpg" />
     <Content Include="Asset\img\contact-01.jpg" />
     <Content Include="Asset\img\contact-02.jpg" />
     <Content Include="Asset\img\contact-bg.jpg" />
@@ -410,6 +413,7 @@
     <Content Include="Views\Home\YourTicket.cshtml" />
     <Content Include="Views\Home\DetailTicket.cshtml" />
     <Content Include="Views\Home\EditUser.cshtml" />
+    <Content Include="Views\Home\Deals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
